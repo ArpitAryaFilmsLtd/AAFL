@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aspiring Director - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #e5e7eb;
+        }
+        .font-display {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 0.05em;
+        }
+        /* Active nav link style */
+        .nav-link.active {
+            color: #ef4444;
+            transform: scale(1.1);
+        }
+        /* Section transition */
+        section {
+            transition: opacity 0.5s ease-in-out;
+        }
+        /* Video container for responsive embeds */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #111;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .video-bg-item {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: cover;
+        }
+        .logoImage {
+            max-width: 100px;
+        }
+        /* Spinner for loading state */
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid #ef4444;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Accordion styles */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+        }
+        .accordion-content.active {
+            max-height: 500px;
+            padding: 1rem;
+        }
+        .accordion-icon {
+            transition: transform 0.3s ease-in-out;
+        }
+        .accordion-icon.rotate-180 {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-200">
+
+    <header class="bg-black/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#home" class="text-2xl font-bold text-white flex items-center font-display">
+                    <img src="staticResources/AAFL-1.jpg" alt="AAFL" class="logoImage">
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-300 hover:text-red-500 transition-all duration-300">Home</a>
+                    <a href="#about" class="nav-link text-gray-300 hover:text-red-500 transition-all duration-300">About</a>
+                    <a href="#portfolio" class="nav-link text-gray-300 hover:text-red-500 transition-all duration-300">Portfolio</a>
+                    <a href="#contact" class="nav-link text-gray-300 hover:text-red-500 transition-all duration-300">Contact</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden text-gray-300 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4">
+                <a href="#home" class="block py-2 px-4 text-sm nav-link-mobile rounded">Home</a>
+                <a href="#about" class="block py-2 px-4 text-sm nav-link-mobile rounded">About</a>
+                <a href="#portfolio" class="block py-2 px-4 text-sm nav-link-mobile rounded">Portfolio</a>
+                <a href="#contact" class="block py-2 px-4 text-sm nav-link-mobile rounded">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-full grid grid-cols-2 md:grid-cols-4 z-0 opacity-40">
+                <div class="h-full w-full overflow-hidden"><video autoplay loop muted playsinline class="video-bg-item"><source src="https://assets.mixkit.co/videos/preview/mixkit-a-surfer-riding-a-wave-in-the-ocean-4320-large.mp4" type="video/mp4"></video></div>
+                <div class="h-full w-full overflow-hidden"><video autoplay loop muted playsinline class="video-bg-item"><source src="https://assets.mixkit.co/videos/preview/mixkit-people-paddling-on-a-raft-in-the-middle-of-the-sea-4322-large.mp4" type="video/mp4"></video></div>
+                <div class="h-full w-full overflow-hidden"><video autoplay loop muted playsinline class="video-bg-item"><source src="https://assets.mixkit.co/videos/preview/mixkit-red-frog-on-a-log-in-the-jungle-4309-large.mp4" type="video/mp4"></video></div>
+                <div class="h-full w-full overflow-hidden"><video autoplay loop muted playsinline class="video-bg-item"><source src="https://assets.mixkit.co/videos/preview/mixkit-the-spheres-of-a-newtons-cradle-colliding-4312-large.mp4" type="video/mp4"></video></div>
+            </div>
+            
+            <div class="absolute top-0 left-0 w-full h-full bg-black/50 z-10"></div>
+
+            <div class="relative z-20">
+                <div class="absolute -inset-2 bg-gradient-to-r from-red-600 to-red-900 rounded-full blur-xl opacity-40 animate-pulse"></div>
+                <div class="relative">
+                    <h1 class="text-6xl md:text-8xl text-white tracking-tighter font-display">ARPIT ARYA</h1>
+                    <p class="text-xl md:text-3xl text-red-500 mt-4 font-display">Film Director & Storyteller</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 bg-gray-900/80">
+            <div class="container mx-auto px-6">
+                <h2 class="text-5xl text-center mb-12 font-display text-white">About Me</h2>
+                <div class="max-w-3xl mx-auto flex flex-col md:flex-row items-center gap-10">
+                    <img src="staticResources/ME.jpg" alt="Arpit Arya" class="rounded-full w-48 h-48 md:w-60 md:h-60 object-cover shadow-lg border-2 border-white-500/50">
+                    <p class="text-lg text-gray-300 leading-relaxed text-center md:text-left">
+                        I am a passionate filmmaker with a love for telling compelling stories that resonate with audiences. I've had the privilege of working on various projects, from short films to documentaries. My work explores themes of human connection, resilience, and the beauty of the everyday. I believe in the power of cinema to inspire change and evoke emotion.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="py-20 bg-black">
+            <div class="container mx-auto px-6">
+                <h2 class="text-5xl text-center mb-12 font-display text-white">Portfolio</h2>
+                <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8 px-80 py-16">
+                    <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl shadow-red-900/20 transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="video-container rounded-t-lg">
+                            <iframe src="https://www.youtube.com/embed/Yo3Z1D3ElW8?si=0n_txMZNoPc_W82r" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl mb-2 text-white font-display">Director's Showreel 2024</h3>
+                            <p class="text-gray-400">Here's the director's showreel of the year 2024, All the shortfilms, documentaries or advertisement I created in my film school.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl shadow-red-900/20 transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="video-container rounded-t-lg">
+                            <iframe src="https://www.youtube.com/embed/l0irLh0aS3Y?si=uJ19DSpmFDimu5Io" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl mb-2 text-white font-display">LIHAAF - 5 minute award winning short fiction</h3>
+                            <p class="text-gray-400">The film deals with an Illegitimate girl of a prostitute mother who wonders about who her father is. Little girl in her innocent and curious nature who know nothing about her mother’s profession and what sex work is, but is terrified by the shadow of a man, shadow which has no face. The little girl as she deals with these questions of the life, yearns for a fatherly presence as her friends from school shares the stories of their fathers being their superheroes.</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl shadow-red-900/20 transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="video-container rounded-t-lg">
+                           <iframe src="https://www.youtube.com/embed/EHp8jMGhZsM?si=_lwMbhEqrwi00KUz" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl mb-2 text-white font-display">Hero Helmet Advertisement</h3>
+                            <p class="text-gray-400">Advertisement production for Hero motorcorp, Hero Helmet.</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl shadow-red-900/20 transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="video-container rounded-t-lg">
+                           <iframe src="https://www.youtube.com/embed/BkoTTsn2GhY?si=xRxJKzp3M_QoxFgm" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl mb-2 text-white font-display">Yamuna's Sewage Treatment Plant | Documentary Trailer | Exposing Delhi's Real Picture</h3>
+                            <p class="text-gray-400">As the government keeps on spending crores on Clean Yamuna Project, the main and real problem lies unnoticed in untreated water from sewage treatment plant under the filth.
+We visit and capture the untreated water from STPs mixing with Yamuna. We take interviews of various environmental activists and talk about the current condition of Yamuna. Why is it like what it is? What is the government doing for years and still not able to make the necessary changes and impact.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-20">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                        <div>
+                            <h3 class="text-4xl text-center md:text-left mb-8 font-display text-white">Awards & Accolades</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <button class="accordion-button w-full text-left bg-gray-900 p-4 rounded-lg flex justify-between items-center hover:bg-gray-800 transition">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-trophy text-red-500 text-xl mr-4"></i>
+                                            <span class="font-bold text-lg text-white">Best Indian Short Film - Special Jury Award - Athvikvaruni International Film Festival 2024</span>
+                                        </div>
+                                        <i class="fas fa-chevron-down accordion-icon text-red-500"></i>
+                                    </button>
+                                    <div class="accordion-content bg-gray-900/50 rounded-b-lg">
+                                        <div class="flex flex-col gap-4 p-4">
+                                            <p class="text-gray-400">Lihaaf our short film won Best Indian Short Film - Special Jury Award - Athvikvaruni International Film Festival in 2024</p>
+                                            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 image-gallery">
+                                                <img src="staticResources/lihaaf_aiff.jpg" alt="Award Image 1" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['staticResources/lihaaf_aiff.jpg'], 0)">
+                                                <!--img src="https://placehold.co/150x100/111827/ef4444?text=Award+Scene+2" alt="Award Image 2" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['https://placehold.co/800x600/111827/ef4444?text=Award+Scene+1', 'https://placehold.co/800x600/111827/ef4444?text=Award+Scene+2', 'https://placehold.co/800x600/111827/ef4444?text=Award+Scene+3'], 1)">
+                                                <img src="https://placehold.co/150x100/111827/ef4444?text=Award+Scene+3" alt="Award Image 3" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['https://placehold.co/800x600/111827/ef4444?text=Award+Scene+1', 'https://placehold.co/800x600/111827/ef4444?text=Award+Scene+2', 'https://placehold.co/800x600/111827/ef4444?text=Award+Scene+3'], 2)"-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="accordion-button w-full text-left bg-gray-900 p-4 rounded-lg flex justify-between items-center hover:bg-gray-800 transition">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-trophy text-red-500 text-xl mr-4"></i>
+                                            <span class="font-bold text-lg text-white">Best Documentary Short Film - Global Lion International Film Festival 2025</span>
+                                        </div>
+                                        <i class="fas fa-chevron-down accordion-icon text-red-500"></i>
+                                    </button>
+                                    <div class="accordion-content bg-gray-900/50 rounded-b-lg">
+                                        <div class="flex flex-col gap-4 p-4">
+                                            <p class="text-gray-400">Award for Documentary - Yamuna's Sewage Treatment Plant</p>
+                                            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 image-gallery">
+                                                <img src="staticResources/yamuna_gliff.jpg" alt="Documentary Image 1" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['staticResources/yamuna_gliff.jpg'], 0)">
+                                                <!--img src="https://placehold.co/150x100/111827/ef4444?text=Documentary+2" alt="Documentary Image 2" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['https://placehold.co/800x600/111827/ef4444?text=Documentary+1', 'https://placehold.co/800x600/111827/ef4444?text=Documentary+2'], 1)"-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="accordion-button w-full text-left bg-gray-900 p-4 rounded-lg flex justify-between items-center hover:bg-gray-800 transition">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-award text-red-500 text-xl mr-4"></i>
+                                            <span class="font-bold text-lg text-white">Honourable Mention - Innovart Film Festival 2025</span>
+                                        </div>
+                                        <i class="fas fa-chevron-down accordion-icon text-red-500"></i>
+                                    </button>
+                                    <div class="accordion-content bg-gray-900/50 rounded-b-lg">
+                                        <div class="flex flex-col gap-4 p-4">
+                                            <p class="text-gray-400">Honourable Mention for Documentary - Yamuna's Sewage Treatment Plant</p>
+                                            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 image-gallery">
+                                                <img src="staticResources/yamuna_p1.jpg" alt="Honourable Mention Image 1" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['staticResources/yamuna_p1.jpg'], 0)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="accordion-button w-full text-left bg-gray-900 p-4 rounded-lg flex justify-between items-center hover:bg-gray-800 transition">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-award text-red-500 text-xl mr-4"></i>
+                                            <span class="font-bold text-lg text-white">Runner Up - Urban Adda Rahgiri Foundation Film Festival 2025</span>
+                                        </div>
+                                        <i class="fas fa-chevron-down accordion-icon text-red-500"></i>
+                                    </button>
+                                    <div class="accordion-content bg-gray-900/50 rounded-b-lg">
+                                        <div class="flex flex-col gap-4 p-4">
+                                            <p class="text-gray-400">Our Documentary - Yamuna's Sewage Treatment Plant reached the Runner Up Level</p>
+                                            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 image-gallery">
+                                                <img src="staticResources/yamuna_p1.jpg" alt="Runner Up Image 1" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['staticResources/yamuna_p1.jpg'], 0)">
+                                                <!--img src="https://placehold.co/150x100/111827/ef4444?text=Runner+Up+2" alt="Runner Up Image 2" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['https://placehold.co/800x600/111827/ef4444?text=Runner+Up+1', 'https://placehold.co/800x600/111827/ef4444?text=Runner+Up+2'], 1)"-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="accordion-button w-full text-left bg-gray-900 p-4 rounded-lg flex justify-between items-center hover:bg-gray-800 transition">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-medal text-red-500 text-xl mr-4"></i>
+                                            <span class="font-bold text-lg text-white">Official Selection - 14th Dadasaheb Phalke Film Festival 2024</span>
+                                        </div>
+                                        <i class="fas fa-chevron-down accordion-icon text-red-500"></i>
+                                    </button>
+                                    <div class="accordion-content bg-gray-900/50 rounded-b-lg">
+                                        <div class="flex flex-col gap-4 p-4">
+                                            <p class="text-gray-400">Official Selection for Lihaaf Short Film</p>
+                                            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 image-gallery">
+                                                <img src="staticResources/lihaaf_p1.jpg" alt="Selection Image 1" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['staticResources/lihaaf_p1.jpg', 'staticResources/lihaaf_p2.jpg', 'staticResources/lihaaf_p3.jpg'], 0)">
+<img src="staticResources/lihaaf_p2.jpg" alt="Selection Image 1" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['staticResources/lihaaf_p1.jpg', 'staticResources/lihaaf_p2.jpg', 'staticResources/lihaaf_p3.jpg'], 1)">
+<img src="staticResources/lihaaf_p3.jpg" alt="Selection Image 1" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['staticResources/lihaaf_p1.jpg', 'staticResources/lihaaf_p2.jpg', 'staticResources/lihaaf_p3.jpg'], 2)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="accordion-button w-full text-left bg-gray-900 p-4 rounded-lg flex justify-between items-center hover:bg-gray-800 transition">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-medal text-red-500 text-xl mr-4"></i>
+                                            <span class="font-bold text-lg text-white">Official Selection - 3rd West Bengal Short Film Festival 2024</span>
+                                        </div>
+                                        <i class="fas fa-chevron-down accordion-icon text-red-500"></i>
+                                    </button>
+                                    <div class="accordion-content bg-gray-900/50 rounded-b-lg">
+                                        <div class="flex flex-col gap-4 p-4">
+                                            <p class="text-gray-400">Official Selection for Lihaaf Short Film</p>
+                                            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 image-gallery">
+                                                <img src="staticResources/lihaaf_wbff.jpg" alt="Selection Image 2" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['staticResources/lihaaf_wbff.jpg'], 0)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-4xl text-center md:text-left mb-8 font-display text-white">Other Skills</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <button class="accordion-button w-full text-left bg-gray-900 p-4 rounded-lg flex justify-between items-center hover:bg-gray-800 transition">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-pen-nib text-red-500 text-2xl mr-4"></i>
+                                            <span class="text-lg font-semibold">Screenwriting</span>
+                                        </div>
+                                        <i class="fas fa-chevron-down accordion-icon text-red-500"></i>
+                                    </button>
+                                    <div class="accordion-content bg-gray-900/50 rounded-b-lg">
+                                        <div class="flex flex-col gap-4 p-4">
+                                            <p class="text-gray-400">Proficient in crafting compelling narratives, developing characters, and structuring scripts for feature films, shorts, and series.</p>
+                                            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 image-gallery">
+                                                <img src="staticResources/swa_card.png" alt="Screenwriting Image 1" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['staticResources/swa_card.png'], 0)">
+                                                <!--img src="https://placehold.co/150x100/111827/ef4444?text=Screenwriting+2" alt="Screenwriting Image 2" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['https://placehold.co/800x600/111827/ef4444?text=Screenwriting+1', 'https://placehold.co/800x600/111827/ef4444?text=Screenwriting+2'], 1)"-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="accordion-button w-full text-left bg-gray-900 p-4 rounded-lg flex justify-between items-center hover:bg-gray-800 transition">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-film text-red-500 text-2xl mr-4"></i>
+                                            <span class="text-lg font-semibold">Production Designing/ Art Direction</span>
+                                        </div>
+                                        <i class="fas fa-chevron-down accordion-icon text-red-500"></i>
+                                    </button>
+                                    <div class="accordion-content bg-gray-900/50 rounded-b-lg">
+                                        <div class="flex flex-col gap-4 p-4">
+                                            <p class="text-gray-400">Noteworthy experience in Production Designing and Art Direction/ Set Decoration.</p>
+                                            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 image-gallery">
+                                                <img src="staticResources/art_dir_10.jpg" alt="Production Image 1" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['staticResources/art_dir_1.jpg', 'staticResources/art_dir_2.jpg', 'staticResources/art_dir_3.jpg', 'staticResources/art_dir_4.jpg', 'staticResources/art_dir_5.jpg', 'staticResources/art_dir_6.jpg', 'staticResources/art_dir_7.jpg', 'staticResources/art_dir_8.jpg', 'staticResources/art_dir_9.jpg', 'staticResources/art_dir_10.jpg', 'staticResources/art_dir_11.jpg', 'staticResources/art_dir_12.jpg', 'staticResources/art_dir_13.png', 'staticResources/art_dir_14.png', 'staticResources/art_dir_15.png', 'staticResources/art_dir_16.png', 'staticResources/art_dir_17.png', 'staticResources/art_dir_18.png', 'staticResources/heroH_ad.jpg', 'staticResources/art_dir_20.png'], 0)">
+                                                <img src="staticResources/art_dir_11.jpg" alt="Production Image 1" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['staticResources/art_dir_1.jpg', 'staticResources/art_dir_2.jpg', 'staticResources/art_dir_3.jpg', 'staticResources/art_dir_4.jpg', 'staticResources/art_dir_5.jpg', 'staticResources/art_dir_6.jpg', 'staticResources/art_dir_7.jpg', 'staticResources/art_dir_8.jpg', 'staticResources/art_dir_9.jpg', 'staticResources/art_dir_10.jpg', 'staticResources/art_dir_11.jpg', 'staticResources/art_dir_12.jpg', 'staticResources/art_dir_13.png', 'staticResources/art_dir_14.png', 'staticResources/art_dir_15.png', 'staticResources/art_dir_16.png', 'staticResources/art_dir_17.png', 'staticResources/art_dir_18.png', 'staticResources/heroH_ad.jpg', 'staticResources/art_dir_20.png'], 1)">
+                                                <img src="staticResources/art_dir_18.png" alt="Production Image 1" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['staticResources/art_dir_1.jpg', 'staticResources/art_dir_2.jpg', 'staticResources/art_dir_3.jpg', 'staticResources/art_dir_4.jpg', 'staticResources/art_dir_5.jpg', 'staticResources/art_dir_6.jpg', 'staticResources/art_dir_7.jpg', 'staticResources/art_dir_8.jpg', 'staticResources/art_dir_9.jpg', 'staticResources/art_dir_10.jpg', 'staticResources/art_dir_11.jpg', 'staticResources/art_dir_12.jpg', 'staticResources/art_dir_13.png', 'staticResources/art_dir_14.png', 'staticResources/art_dir_15.png', 'staticResources/art_dir_16.png', 'staticResources/art_dir_17.png', 'staticResources/art_dir_18.png', 'staticResources/heroH_ad.jpg', 'staticResources/art_dir_20.png'], 2)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button class="accordion-button w-full text-left bg-gray-900 p-4 rounded-lg flex justify-between items-center hover:bg-gray-800 transition">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-photo-film text-red-500 text-2xl mr-4"></i>
+                                            <span class="text-lg font-semibold">Mood Boarding/ Story Boarding</span>
+                                        </div>
+                                        <i class="fas fa-chevron-down accordion-icon text-red-500"></i>
+                                    </button>
+                                    <div class="accordion-content bg-gray-900/50 rounded-b-lg">
+                                        <div class="flex flex-col gap-4 p-4">
+                                            <p class="text-gray-400">Intermediate level efficiency in Shot Designing, Story Boarding and Mood Boarding.</p>
+                                            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 image-gallery">
+                                                <img src="staticResources/MB1.png" alt="Storyboarding Image 1" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['staticResources/MB1.png', 'staticResources/MB2.png', 'staticResources/MB3.png', 'staticResources/MB4.png', 'staticResources/MB5.png'], 0)">
+                                                <img src="staticResources/MB2.png" alt="Storyboarding Image 1" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['staticResources/MB1.png', 'staticResources/MB2.png', 'staticResources/MB3.png', 'staticResources/MB4.png', 'staticResources/MB5.png'], 1)">
+<img src="staticResources/MB3.png" alt="Storyboarding Image 1" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['staticResources/MB1.png', 'staticResources/MB2.png', 'staticResources/MB3.png', 'staticResources/MB4.png', 'staticResources/MB5.png'], 2)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden">
+                    <div class="relative w-11/12 max-w-5xl h-3/4 flex items-center justify-center">
+                        <button id="imageModalCloseBtn" class="absolute top-4 right-4 text-white text-3xl hover:text-red-500 transition-colors" tabindex="0" aria-label="Close Modal">×</button>
+                        
+                        <button id="prevBtn" class="absolute left-4 z-10 text-white text-5xl hover:text-red-500 transition-colors" tabindex="0" aria-label="Previous Image"><</button>
+                        
+                        <img id="modalImage" src="" alt="Award or Skill Image" class="max-w-full max-h-full object-contain">
+                        
+                        <button id="nextBtn" class="absolute right-4 z-10 text-white text-5xl hover:text-red-500 transition-colors" tabindex="0" aria-label="Next Image">></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 bg-gray-900/80">
+            <div class="container mx-auto px-6">
+                <h2 class="text-5xl text-center mb-12 font-display text-white">Get In Touch</h2>
+                <div class="max-w-2xl mx-auto text-center">
+                    <p class="text-lg mb-8">
+                        I'm always open to discussing new projects, creative ideas, or opportunities to be part of an amazing story. Feel free to reach out.
+                    </p>
+                    <a href="mailto:aryaarpit2000@gmail.com" class="inline-block bg-red-600 text-white font-bold py-3 px-8 rounded-full hover:bg-red-700 transition-colors duration-300 transform hover:scale-105 text-lg">
+                        <i class="fas fa-envelope mr-2"></i> Email Me
+                    </a>
+                    
+                    <div class="mt-12 mb-16 flex justify-center space-x-6">
+                        <a href="https://www.youtube.com/@arpitarya07" class="text-gray-400 hover:text-red-500 transition-colors duration-300 text-3xl transform hover:scale-110"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/arya_arpit?igsh=MW5qM25tYmp5bHp4cw==" class="text-gray-400 hover:text-red-500 transition-colors duration-300 text-3xl transform hover:scale-110"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/arpit-arya-b055b2303?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="text-gray-400 hover:text-red-500 transition-colors duration-300 text-3xl transform hover:scale-110"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://filmfreeway.com/ArpitArya" class="text-gray-400 hover:text-red-500 transition-colors duration-300 text-3xl transform hover:scale-110"><i class="fas fa-clapperboard"></i></a>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+    </main>
+
+    
+    <footer class="bg-black py-6">
+        <div class="container mx-auto text-center text-gray-500">
+            <p>© 2024 Arpit Arya. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // ----- Mobile Menu Logic -----
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileNavLinks = document.querySelectorAll('.nav-link-mobile');
+            
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            });
+
+            // ----- Nav Link Highlighting on Scroll -----
+            const sections = document.querySelectorAll('section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        document.querySelectorAll('.nav-link, .nav-link-mobile').forEach(link => {
+                            link.classList.remove('active', 'bg-red-600', 'text-white');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('active');
+                                if(link.classList.contains('nav-link-mobile')) {
+                                    link.classList.add('bg-red-600', 'text-white');
+                                }
+                            }
+                        });
+                    }
+                });
+            }, { threshold: 0.1 });
+            sections.forEach(section => observer.observe(section));
+
+            // ----- Image Modal/Carousel Logic -----
+            const imageModal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const imageModalCloseBtn = document.getElementById('imageModalCloseBtn');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            let currentImageIndex = 0;
+            let images = [];
+
+            window.openModal = (imageUrls, index) => {
+                images = imageUrls;
+                currentImageIndex = index;
+                modalImage.src = images[currentImageIndex];
+                imageModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                imageModalCloseBtn.focus();
+            };
+
+            const closeImageModal = () => {
+                imageModal.classList.add('hidden');
+                document.body.style.overflow = '';
+            };
+
+            const showNextImage = () => {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                modalImage.src = images[currentImageIndex];
+            };
+
+            const showPrevImage = () => {
+                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                modalImage.src = images[currentImageIndex];
+            };
+
+            imageModalCloseBtn.addEventListener('click', closeImageModal);
+            nextBtn.addEventListener('click', showNextImage);
+            prevBtn.addEventListener('click', showPrevImage);
+
+            imageModal.addEventListener('click', (e) => {
+                if (e.target === imageModal) {
+                    closeImageModal();
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !imageModal.classList.contains('hidden')) {
+                    closeImageModal();
+                } else if (e.key === 'ArrowRight' && !imageModal.classList.contains('hidden')) {
+                    showNextImage();
+                } else if (e.key === 'ArrowLeft' && !imageModal.classList.contains('hidden')) {
+                    showPrevImage();
+                }
+            });
+
+            // ----- Accordion Functionality -----
+            document.querySelectorAll('.accordion-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    const accordionContent = button.nextElementSibling;
+                    const icon = button.querySelector('.accordion-icon');
+                    
+                    document.querySelectorAll('.accordion-content.active').forEach(item => {
+                        if (item !== accordionContent) {
+                            item.classList.remove('active');
+                            item.previousElementSibling.querySelector('.accordion-icon').classList.remove('rotate-180');
+                        }
+                    });
+                    
+                    accordionContent.classList.toggle('active');
+                    icon.classList.toggle('rotate-180');
+                });
+            });
+
+            // ----- Gemini AI Story Generator Logic -----
+            const generateBtn = document.getElementById('generate-story-btn');
+            const storyPromptInput = document.getElementById('story-prompt');
+            const storyModal = document.getElementById('story-modal');
+            const modalContent = document.getElementById('modal-content');
+            const closeModalBtnStory = document.getElementById('close-modal-btn');
+            const modalSpinner = document.getElementById('modal-spinner');
+            const modalResult = document.getElementById('modal-result');
+            const storyOutput = document.getElementById('story-output');
+            const modalError = document.getElementById('modal-error');
+            const errorOutput = document.getElementById('error-output');
+
+            function showStoryModal() {
+                storyModal.classList.remove('hidden');
+                storyModal.classList.add('flex');
+                setTimeout(() => {
+                    modalContent.classList.remove('scale-95', 'opacity-0');
+                    modalContent.classList.add('scale-100', 'opacity-100');
+                }, 10);
+            }
+
+            function hideStoryModal() {
+                modalContent.classList.remove('scale-100', 'opacity-100');
+                modalContent.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    storyModal.classList.add('hidden');
+                    storyModal.classList.remove('flex');
+                }, 300);
+            }
+
+            if (closeModalBtnStory) {
+                closeModalBtnStory.addEventListener('click', hideStoryModal);
+            }
+            if (storyModal) {
+                storyModal.addEventListener('click', (e) => {
+                    if (e.target === storyModal) {
+                        hideStoryModal();
+                    }
+                });
+            }
+
+            if (generateBtn) {
+                generateBtn.addEventListener('click', async () => {
+                    const promptText = storyPromptInput.value.trim();
+                    if (!promptText) {
+                        alert('Please enter a prompt for the story idea.');
+                        return;
+                    }
+                    showStoryModal();
+                    modalSpinner.style.display = 'flex';
+                    modalResult.style.display = 'none';
+                    modalError.style.display = 'none';
+
+                    try {
+                        const fullPrompt = `You are a creative assistant for a film director. Based on the following prompt, generate a compelling one-sentence logline for a short film. The logline should be intriguing and cinematic. Prompt: "${promptText}"`;
+                        let chatHistory = [{ role: "user", parts: [{ text: fullPrompt }] }];
+                        const payload = { contents: chatHistory };
+                        const apiKey = "";
+                        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                        const response = await fetch(apiUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+
+                        if (!response.ok) {
+                            throw new Error(`API error: ${response.statusText}`);
+                        }
+
+                        const result = await response.json();
+                        
+                        if (result.candidates && result.candidates.length > 0 &&
+                            result.candidates[0].content && result.candidates[0].content.parts &&
+                            result.candidates[0].content.parts.length > 0) {
+                            const text = result.candidates[0].content.parts[0].text;
+                            storyOutput.textContent = text;
+                            modalResult.style.display = 'block';
+                        } else {
+                            throw new Error("Invalid response structure from API.");
+                        }
+                    } catch (error) {
+                        console.error("Error generating story:", error);
+                        errorOutput.textContent = "Sorry, we couldn't generate a story right now. Please try again later.";
+                        modalError.style.display = 'block';
+                    } finally {
+                        modalSpinner.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
