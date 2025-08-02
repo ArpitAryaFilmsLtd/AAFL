@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aspiring Director - Portfolio</title>
+    <title>AAFL</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -81,6 +81,15 @@
         .accordion-icon.rotate-180 {
             transform: rotate(180deg);
         }
+        /* Force line breaks on small screens for long titles */
+        .line-break-on-mobile {
+            display: block;
+        }
+        @media (min-width: 640px) {
+            .line-break-on-mobile {
+                display: inline;
+            }
+        }
     </style>
 </head>
 <body class="bg-black text-gray-200">
@@ -145,7 +154,7 @@
         <section id="portfolio" class="py-20 bg-black">
             <div class="container mx-auto px-6">
                 <h2 class="text-5xl text-center mb-12 font-display text-white">Portfolio</h2>
-                <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8 px-80 py-16">
+                <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8 px-4 md:px-80 py-16">
                     <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl shadow-red-900/20 transform hover:-translate-y-2 transition-transform duration-300">
                         <div class="video-container rounded-t-lg">
                             <iframe src="https://www.youtube.com/embed/Yo3Z1D3ElW8?si=0n_txMZNoPc_W82r" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -156,7 +165,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
                     
                     <div class="bg-gray-900 rounded-lg overflow-hidden shadow-xl shadow-red-900/20 transform hover:-translate-y-2 transition-transform duration-300">
                         <div class="video-container rounded-t-lg">
@@ -189,7 +198,7 @@ We visit and capture the untreated water from STPs mixing with Yamuna. We take i
                 </div>
 
                 <div class="mt-20">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 px-4">
                         <div>
                             <h3 class="text-4xl text-center md:text-left mb-8 font-display text-white">Awards & Accolades</h3>
                             <div class="space-y-4">
@@ -197,7 +206,7 @@ We visit and capture the untreated water from STPs mixing with Yamuna. We take i
                                     <button class="accordion-button w-full text-left bg-gray-900 p-4 rounded-lg flex justify-between items-center hover:bg-gray-800 transition">
                                         <div class="flex items-center">
                                             <i class="fas fa-trophy text-red-500 text-xl mr-4"></i>
-                                            <span class="font-bold text-lg text-white">Best Indian Short Film - Special Jury Award - Athvikvaruni International Film Festival 2024</span>
+                                            <span class="font-bold text-lg text-white"><span class="line-break-on-mobile">Best Indian Short Film - Special Jury Award -</span> Athvikvaruni International Film Festival 2024</span>
                                         </div>
                                         <i class="fas fa-chevron-down accordion-icon text-red-500"></i>
                                     </button>
@@ -206,9 +215,7 @@ We visit and capture the untreated water from STPs mixing with Yamuna. We take i
                                             <p class="text-gray-400">Lihaaf our short film won Best Indian Short Film - Special Jury Award - Athvikvaruni International Film Festival in 2024</p>
                                             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 image-gallery">
                                                 <img src="staticResources/lihaaf_aiff.jpg" alt="Award Image 1" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['staticResources/lihaaf_aiff.jpg'], 0)">
-                                                <!--img src="https://placehold.co/150x100/111827/ef4444?text=Award+Scene+2" alt="Award Image 2" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['https://placehold.co/800x600/111827/ef4444?text=Award+Scene+1', 'https://placehold.co/800x600/111827/ef4444?text=Award+Scene+2', 'https://placehold.co/800x600/111827/ef4444?text=Award+Scene+3'], 1)">
-                                                <img src="https://placehold.co/150x100/111827/ef4444?text=Award+Scene+3" alt="Award Image 3" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['https://placehold.co/800x600/111827/ef4444?text=Award+Scene+1', 'https://placehold.co/800x600/111827/ef4444?text=Award+Scene+2', 'https://placehold.co/800x600/111827/ef4444?text=Award+Scene+3'], 2)"-->
-                                            </div>
+                                                </div>
                                         </div>
                                     </div>
                                 </div>
@@ -216,7 +223,7 @@ We visit and capture the untreated water from STPs mixing with Yamuna. We take i
                                     <button class="accordion-button w-full text-left bg-gray-900 p-4 rounded-lg flex justify-between items-center hover:bg-gray-800 transition">
                                         <div class="flex items-center">
                                             <i class="fas fa-trophy text-red-500 text-xl mr-4"></i>
-                                            <span class="font-bold text-lg text-white">Best Documentary Short Film - Global Lion International Film Festival 2025</span>
+                                            <span class="font-bold text-lg text-white"><span class="line-break-on-mobile">Best Documentary Short Film -</span> Global Lion International Film Festival 2025</span>
                                         </div>
                                         <i class="fas fa-chevron-down accordion-icon text-red-500"></i>
                                     </button>
@@ -225,8 +232,7 @@ We visit and capture the untreated water from STPs mixing with Yamuna. We take i
                                             <p class="text-gray-400">Award for Documentary - Yamuna's Sewage Treatment Plant</p>
                                             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 image-gallery">
                                                 <img src="staticResources/yamuna_gliff.jpg" alt="Documentary Image 1" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['staticResources/yamuna_gliff.jpg'], 0)">
-                                                <!--img src="https://placehold.co/150x100/111827/ef4444?text=Documentary+2" alt="Documentary Image 2" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['https://placehold.co/800x600/111827/ef4444?text=Documentary+1', 'https://placehold.co/800x600/111827/ef4444?text=Documentary+2'], 1)"-->
-                                            </div>
+                                                </div>
                                         </div>
                                     </div>
                                 </div>
@@ -234,7 +240,7 @@ We visit and capture the untreated water from STPs mixing with Yamuna. We take i
                                     <button class="accordion-button w-full text-left bg-gray-900 p-4 rounded-lg flex justify-between items-center hover:bg-gray-800 transition">
                                         <div class="flex items-center">
                                             <i class="fas fa-award text-red-500 text-xl mr-4"></i>
-                                            <span class="font-bold text-lg text-white">Honourable Mention - Innovart Film Festival 2025</span>
+                                            <span class="font-bold text-lg text-white"><span class="line-break-on-mobile">Honourable Mention -</span> Innovart Film Festival 2025</span>
                                         </div>
                                         <i class="fas fa-chevron-down accordion-icon text-red-500"></i>
                                     </button>
@@ -251,7 +257,7 @@ We visit and capture the untreated water from STPs mixing with Yamuna. We take i
                                     <button class="accordion-button w-full text-left bg-gray-900 p-4 rounded-lg flex justify-between items-center hover:bg-gray-800 transition">
                                         <div class="flex items-center">
                                             <i class="fas fa-award text-red-500 text-xl mr-4"></i>
-                                            <span class="font-bold text-lg text-white">Runner Up - Urban Adda Rahgiri Foundation Film Festival 2025</span>
+                                            <span class="font-bold text-lg text-white"><span class="line-break-on-mobile">Runner Up -</span> Urban Adda Rahgiri Foundation Film Festival 2025</span>
                                         </div>
                                         <i class="fas fa-chevron-down accordion-icon text-red-500"></i>
                                     </button>
@@ -260,8 +266,7 @@ We visit and capture the untreated water from STPs mixing with Yamuna. We take i
                                             <p class="text-gray-400">Our Documentary - Yamuna's Sewage Treatment Plant reached the Runner Up Level</p>
                                             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 image-gallery">
                                                 <img src="staticResources/yamuna_p1.jpg" alt="Runner Up Image 1" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['staticResources/yamuna_p1.jpg'], 0)">
-                                                <!--img src="https://placehold.co/150x100/111827/ef4444?text=Runner+Up+2" alt="Runner Up Image 2" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['https://placehold.co/800x600/111827/ef4444?text=Runner+Up+1', 'https://placehold.co/800x600/111827/ef4444?text=Runner+Up+2'], 1)"-->
-                                            </div>
+                                                </div>
                                         </div>
                                     </div>
                                 </div>
@@ -269,7 +274,7 @@ We visit and capture the untreated water from STPs mixing with Yamuna. We take i
                                     <button class="accordion-button w-full text-left bg-gray-900 p-4 rounded-lg flex justify-between items-center hover:bg-gray-800 transition">
                                         <div class="flex items-center">
                                             <i class="fas fa-medal text-red-500 text-xl mr-4"></i>
-                                            <span class="font-bold text-lg text-white">Official Selection - 14th Dadasaheb Phalke Film Festival 2024</span>
+                                            <span class="font-bold text-lg text-white"><span class="line-break-on-mobile">Official Selection -</span> 14th Dadasaheb Phalke Film Festival 2024</span>
                                         </div>
                                         <i class="fas fa-chevron-down accordion-icon text-red-500"></i>
                                     </button>
@@ -278,8 +283,8 @@ We visit and capture the untreated water from STPs mixing with Yamuna. We take i
                                             <p class="text-gray-400">Official Selection for Lihaaf Short Film</p>
                                             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 image-gallery">
                                                 <img src="staticResources/lihaaf_p1.jpg" alt="Selection Image 1" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['staticResources/lihaaf_p1.jpg', 'staticResources/lihaaf_p2.jpg', 'staticResources/lihaaf_p3.jpg'], 0)">
-<img src="staticResources/lihaaf_p2.jpg" alt="Selection Image 1" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['staticResources/lihaaf_p1.jpg', 'staticResources/lihaaf_p2.jpg', 'staticResources/lihaaf_p3.jpg'], 1)">
-<img src="staticResources/lihaaf_p3.jpg" alt="Selection Image 1" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['staticResources/lihaaf_p1.jpg', 'staticResources/lihaaf_p2.jpg', 'staticResources/lihaaf_p3.jpg'], 2)">
+                                                <img src="staticResources/lihaaf_p2.jpg" alt="Selection Image 1" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['staticResources/lihaaf_p1.jpg', 'staticResources/lihaaf_p2.jpg', 'staticResources/lihaaf_p3.jpg'], 1)">
+                                                <img src="staticResources/lihaaf_p3.jpg" alt="Selection Image 1" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['staticResources/lihaaf_p1.jpg', 'staticResources/lihaaf_p2.jpg', 'staticResources/lihaaf_p3.jpg'], 2)">
                                             </div>
                                         </div>
                                     </div>
@@ -288,7 +293,7 @@ We visit and capture the untreated water from STPs mixing with Yamuna. We take i
                                     <button class="accordion-button w-full text-left bg-gray-900 p-4 rounded-lg flex justify-between items-center hover:bg-gray-800 transition">
                                         <div class="flex items-center">
                                             <i class="fas fa-medal text-red-500 text-xl mr-4"></i>
-                                            <span class="font-bold text-lg text-white">Official Selection - 3rd West Bengal Short Film Festival 2024</span>
+                                            <span class="font-bold text-lg text-white"><span class="line-break-on-mobile">Official Selection -</span> 3rd West Bengal Short Film Festival 2024</span>
                                         </div>
                                         <i class="fas fa-chevron-down accordion-icon text-red-500"></i>
                                     </button>
@@ -319,8 +324,7 @@ We visit and capture the untreated water from STPs mixing with Yamuna. We take i
                                             <p class="text-gray-400">Proficient in crafting compelling narratives, developing characters, and structuring scripts for feature films, shorts, and series.</p>
                                             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 image-gallery">
                                                 <img src="staticResources/swa_card.png" alt="Screenwriting Image 1" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['staticResources/swa_card.png'], 0)">
-                                                <!--img src="https://placehold.co/150x100/111827/ef4444?text=Screenwriting+2" alt="Screenwriting Image 2" class="rounded-md cursor-pointer hover:opacity-80 transition" onclick="openModal(['https://placehold.co/800x600/111827/ef4444?text=Screenwriting+1', 'https://placehold.co/800x600/111827/ef4444?text=Screenwriting+2'], 1)"-->
-                                            </div>
+                                                </div>
                                         </div>
                                     </div>
                                 </div>
@@ -391,6 +395,7 @@ We visit and capture the untreated water from STPs mixing with Yamuna. We take i
                     <a href="mailto:aryaarpit2000@gmail.com" class="inline-block bg-red-600 text-white font-bold py-3 px-8 rounded-full hover:bg-red-700 transition-colors duration-300 transform hover:scale-105 text-lg">
                         <i class="fas fa-envelope mr-2"></i> Email Me
                     </a>
+                    <p class="text-gray-400 mt-4 text-sm">Alternatively, you can email me at <a href="mailto:aryaarpit2000@gmail.com" class="text-red-400 hover:underline">aryaarpit2000@gmail.com</a>.</p>
                     
                     <div class="mt-12 mb-16 flex justify-center space-x-6">
                         <a href="https://www.youtube.com/@arpitarya07" class="text-gray-400 hover:text-red-500 transition-colors duration-300 text-3xl transform hover:scale-110"><i class="fab fa-youtube"></i></a>
